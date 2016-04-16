@@ -1,3 +1,5 @@
+require 'faye/websocket'
+
 class ChatActionCable
   def initialize(app, options={})
     @app = app
@@ -10,4 +12,4 @@ class ChatActionCable
       @app.call(env)
     end
   end
-end  
+end
