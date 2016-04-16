@@ -60,7 +60,7 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   end
 
-  config.middleware.use ChatActionCable
+  config.middleware.use 'ChatActionCable'
   config.web_socket_server_url = ENV['WEB_SOCKET_URL']
 
   # Use a different cache store in production.
