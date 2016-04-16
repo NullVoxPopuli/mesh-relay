@@ -41,6 +41,7 @@ Rails.application.configure do
   # Action Cable endpoint configuration
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.action_cable.disable_request_forgery_protection = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -59,9 +60,6 @@ Rails.application.configure do
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   end
-
-  config.middleware.use 'ChatActionCable'
-  config.web_socket_server_url = ENV['WEB_SOCKET_URL']
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
