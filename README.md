@@ -10,4 +10,22 @@ See [these test scripts](https://gist.github.com/NullVoxPopuli/edfcbbe91a7877e44
 
 - push to new heroku app
 - add the redis-cloud addon
-- point your clients at `ws://you-heroku-app-name.herokuapp.com`
+- point your clients at `ws://you-heroku-app-name.herokuapp.com?uid=your_users_id`
+
+## Sending messages
+
+
+Messages should be sent with the `chat` command and with a payload of `{ to: recipient_uid, message: encrypted_data }`
+
+```ruby
+client.perform('chat', {
+    to: 'user1',
+    message: 'hello from user2'
+  })
+```
+
+## Receiving messages
+
+Received messages will look like this:
+
+`{ message: encrypted_data }`
