@@ -19,13 +19,15 @@ Messages should be sent with the `chat` command and with a payload of `{ to: rec
 
 ```ruby
 client.perform('chat', {
-    to: 'user1',
-    message: 'hello from user2'
-  })
+  to: 'user1',
+  message: 'hello from user2'
+})
 ```
 
 ## Receiving messages
 
 Received messages will look like this:
 
-`{ message: encrypted_data }`
+```
+{ message: encrypted_data }
+```
