@@ -1,24 +1,6 @@
-## README
+# MeshRelay
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a public relay server for [mesh-chat](https://github.com/neuravion/mesh-chat)
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+See [these test scripts](https://gist.github.com/NullVoxPopuli/edfcbbe91a7877e445cbde84c7f05b37) for how to interact with the relay.
