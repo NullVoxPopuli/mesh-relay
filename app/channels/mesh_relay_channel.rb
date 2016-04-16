@@ -1,5 +1,5 @@
 # Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
-class RelayChannel < ApplicationCable::Channel
+class MeshRelayChannel < ApplicationCable::Channel
   def subscribed
     stream_from "#{uid}"
   end
