@@ -10,9 +10,6 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     message = data['message']
-
-    ActionCable.server.broadcast(
-      "room_channel",
-      message: "<div class='message'><p>#{message}</p></div>")
+    ActionCable.server.broadcast("room_channel", message: message)
   end
 end
