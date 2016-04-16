@@ -10,9 +10,10 @@ module ApplicationCable
 
     protected
 
+    # the connection URL to this actioncable/channel must be
+    # domain.tld?uid=the_uid
     def get_connecting_uid
-      puts request
-      request
+      request.params[:uid]
     end
   end
 end

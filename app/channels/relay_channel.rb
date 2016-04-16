@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
-class MeshClientChannel < ApplicationCable::Channel
+class RelayChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "client_identified_by_#{uid}"
+    stream_from "#{uid}"
   end
 
   def unsubscribed
@@ -11,16 +11,15 @@ class MeshClientChannel < ApplicationCable::Channel
   # messages received from the clients are handled
   # here. :-)
   def chat(data)
-    # TODO: do we want to encrypt the from/to?
-    #       - using https will already cover this?
-    from = data['from'] # uid
-    to = data['to'] # uid
+    # uid of the intended recipient
+    # only the intended recipient will be able to decrypt
+    to = data['to']
     encrypted_message = data['message']
 
     # broadcast the message to the channel
     # that the to client is subscribed to.
     ActionCable.server.broadcast(
-      "client_identified_by_#{to}",
+      "#{to}",
       message: encrypted_message
     )
   end
