@@ -14,6 +14,7 @@ See [these test scripts](https://gist.github.com/NullVoxPopuli/edfcbbe91a7877e44
 
 ## Sending messages
 
+You may use any websocket client as long as it adheres to action_cable message formatting, such as [action_cable_client (ruby)[https://github.com/NullVoxPopuli/action_cable_client]
 
 Messages should be sent with the `chat` command and with a payload of `{ to: recipient_uid, message: encrypted_data }`
 
