@@ -31,3 +31,9 @@ Received messages will look like this:
 ```
 { message: encrypted_data }
 ```
+
+
+
+___________________________________
+
+Note: all the examples are in ruby. All messages sent and received should be JSON formatted.
