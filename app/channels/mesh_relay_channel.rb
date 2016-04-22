@@ -9,21 +9,29 @@ class MeshRelayChannel < ApplicationCable::Channel
     ConnectedList.remove(uid)
   end
 
-  # messages received from the clients are handled
-  # here. :-)
+  # messages received from the clients are handled here. :-)
   def chat(data)
     # uid of the intended recipient
     # only the intended recipient will be able to decrypt
-    to = data['to']
+    to = data['to'].to_s
 
-    # if ConnectedList.include?(to)
+    if ConnectedList.include?(to)
+      relay_message(to, data)
+    else
+      intended_recipient_not_found
+    end
+  end
+
+  private
+
+  def intended_recipient_not_found
+    ActionCable.server.broadcast(to, error: 'recipient not found')
+  end
+
+  # broadcast the message to the channel
+  # that the to client is subscribed to.
+  def relay_message(to, data)
     encrypted_message = data['message']
-
-    # broadcast the message to the channel
-    # that the to client is subscribed to.
-    ActionCable.server.broadcast(
-      "#{to}",
-      message: encrypted_message
-    )
+    ActionCable.server.broadcast(to, message: encrypted_message)
   end
 end

@@ -1,16 +1,28 @@
 class ConnectedList
   REDIS_KEY = 'connected_nodes'
 
+  def self.redis
+    ::Redis.new(url: ActionCableConfig[:url])
+  end
+
+  def self.all
+    redis.smembers(REDIS_KEY)
+  end
+
+  def self.clear_all
+    redis.del(REDIS_KEY)
+  end
+
   def self.add(uid)
-    Redis.sadd(REDIS_KEY, uid)
+    redis.sadd(REDIS_KEY, uid)
   end
 
   def self.include?(uid)
-    Redis.sismember(REDIS_KEY, uid)
+    redis.sismember(REDIS_KEY, uid)
   end
 
   def self.remove(uid)
-    Redis.srem(REDIS_KEY, uid)
+    redis.srem(REDIS_KEY, uid)
   end
 
 end
