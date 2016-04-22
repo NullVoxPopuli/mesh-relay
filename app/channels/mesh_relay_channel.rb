@@ -2,10 +2,11 @@
 class MeshRelayChannel < ApplicationCable::Channel
   def subscribed
     stream_from "#{uid}"
+    ConnectedList.add(uid)
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    ConnectedList.remove(uid)
   end
 
   # messages received from the clients are handled
@@ -14,6 +15,8 @@ class MeshRelayChannel < ApplicationCable::Channel
     # uid of the intended recipient
     # only the intended recipient will be able to decrypt
     to = data['to']
+
+    # if ConnectedList.include?(to)
     encrypted_message = data['message']
 
     # broadcast the message to the channel
