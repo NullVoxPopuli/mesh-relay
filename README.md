@@ -33,7 +33,14 @@ Received messages will look like this:
 { message: encrypted_data }
 ```
 
+## Current Relays
 
+### US
+ - mesh-relay-in-us-1.herokuapp.com
+ - mesh-relay-us-2.herokuapp.com
+### EU
+ - mesh-relay-eu-1.herokuapp.com
+ - mesh-relay-eu-2.herokuapp.com
 
 ___________________________________
 
