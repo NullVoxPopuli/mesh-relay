@@ -3,7 +3,8 @@ module ActionCableConfig
   #   Harmony[:domain] => harmonyapp.com
   def self.[](key)
     unless @config
-      raw_config = File.read(Rails.root + "config/cable.yml")
+      template = ERB.new(File.read(Rails.root + "config/cable.yml"))
+      raw_config = template.result(binding)
       @config = YAML.load(raw_config)[Rails.env].symbolize_keys
     end
     @config[key]
