@@ -18,13 +18,13 @@ class MeshRelayChannel < ApplicationCable::Channel
     if ConnectedList.include?(to)
       relay_message(to, data)
     else
-      intended_recipient_not_found
+      intended_recipient_not_found(to)
     end
   end
 
   private
 
-  def intended_recipient_not_found
+  def intended_recipient_not_found(to)
     ActionCable.server.broadcast(to, error: 'recipient not found')
   end
 
