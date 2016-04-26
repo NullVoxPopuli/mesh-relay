@@ -24,8 +24,8 @@ class MeshRelayChannel < ApplicationCable::Channel
 
   private
 
-  def intended_recipient_not_found(to)
-    ActionCable.server.broadcast(to, error: 'recipient not found')
+  def intended_recipient_not_found
+    ActionCable.server.broadcast(uid, error: 'recipient not found')
   end
 
   # broadcast the message to the channel
