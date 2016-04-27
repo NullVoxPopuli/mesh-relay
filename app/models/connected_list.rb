@@ -2,7 +2,7 @@ class ConnectedList
   REDIS_KEY = 'connected_nodes'
 
   def self.redis
-    ::Redis.new(url: ActionCableConfig[:url])
+    @redis ||= ::Redis.new(url: ActionCableConfig[:url])
   end
 
   def self.all

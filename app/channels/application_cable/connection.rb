@@ -10,6 +10,9 @@ module ApplicationCable
 
     protected
 
+    # NOTE: in order to reject a connection, call
+    #       reject_unauthorized_connection
+
     # the connection URL to this actioncable/channel must be
     # domain.tld?uid=the_uid
     def get_connecting_uid

@@ -12,6 +12,9 @@ See [these test scripts](https://gist.github.com/NullVoxPopuli/edfcbbe91a7877e44
 - add the redis-cloud addon
 - point your clients at `ws://you-heroku-app-name.herokuapp.com?uid=your_users_id`
 
+### Otherways to run the server:
+ - [Running the cable server from the ActionCable Readme](https://github.com/rails/rails/tree/master/actioncable#running-the-cable-server)
+
 ## Sending messages
 
 You may use any websocket client as long as it adheres to action_cable message formatting, such as [action_cable_client (ruby)](https://github.com/NullVoxPopuli/action_cable_client)
