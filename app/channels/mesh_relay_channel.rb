@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
 #
 # A channel is created from a Connection.
@@ -32,10 +33,10 @@ class MeshRelayChannel < ApplicationCable::Channel
     "mesh_relay_#{for_uid}"
   end
 
-  def intended_recipient_not_found
+  def intended_recipient_not_found(to)
     ActionCable.server.broadcast(
       broadcasting_name,
-      error: 'recipient not found')
+      error: "Member with UID #{to} could not be found")
   end
 
   # broadcast the message to the channel

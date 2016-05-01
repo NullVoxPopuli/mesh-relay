@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 require File.expand_path('../boot', __FILE__)
 
 # require 'rails/all'
 
 # below are the contents of rails/all,
 # with the things we don't need commented out
-require "rails"
+require 'rails'
 
 [
   # 'active_record/railtie',
@@ -17,7 +18,7 @@ require "rails"
   # 'sprockets/railtie'
 ].each do |railtie|
   begin
-    require "#{railtie}"
+    require railtie.to_s
   rescue LoadError
   end
 end

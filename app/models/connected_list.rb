@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ConnectedList
   REDIS_KEY = 'connected_nodes'
 
@@ -24,5 +25,4 @@ class ConnectedList
   def self.remove(uid)
     redis.srem(REDIS_KEY, uid)
   end
-
 end

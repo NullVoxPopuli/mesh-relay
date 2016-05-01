@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 describe ConnectedList, type: :model do
@@ -39,5 +40,4 @@ describe ConnectedList, type: :model do
       expect(ConnectedList.all).to_not include('1')
     end
   end
-
 end
