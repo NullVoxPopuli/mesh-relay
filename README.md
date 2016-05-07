@@ -36,6 +36,15 @@ Received messages will look like this:
 { message: encrypted_data }
 ```
 
+### Errors
+
+```
+{
+  status: 404,
+  error: 'message about not being found'
+}
+```
+
 ## Current Relays
 
 ### US
