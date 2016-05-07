@@ -36,6 +36,7 @@ class MeshRelayChannel < ApplicationCable::Channel
   def intended_recipient_not_found(to)
     ActionCable.server.broadcast(
       broadcasting_name,
+      status: 404,
       error: "Member with UID #{to} could not be found")
   end
 
