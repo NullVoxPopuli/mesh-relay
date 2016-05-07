@@ -37,6 +37,7 @@ class MeshRelayChannel < ApplicationCable::Channel
     ActionCable.server.broadcast(
       broadcasting_name,
       status: 404,
+      detail: to,
       error: "Member with UID #{to} could not be found")
   end
 

@@ -41,6 +41,7 @@ Received messages will look like this:
 ```
 {
   status: 404,
+  detail: 'uid....'
   error: 'message about not being found'
 }
 ```
