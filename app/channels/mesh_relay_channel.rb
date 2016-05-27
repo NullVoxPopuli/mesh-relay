@@ -48,6 +48,7 @@ class MeshRelayChannel < ApplicationCable::Channel
 
     ActionCable.server.broadcast(
       broadcasting_name(to),
-      message: encrypted_message)
+      message: encrypted_message,
+      uid: to)
   end
 end
