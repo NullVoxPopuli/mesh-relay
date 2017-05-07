@@ -1,3 +1,8 @@
+# Deprecated
+
+Replacement: https://github.com/NullVoxPopuli/mesh-relay-phoenix
+this also means the websocket protocol has changed (it's similar, but slightly different from action cable)
+
 # MeshRelay
 
 This is a public relay server for [mesh-chat](https://github.com/neuravion/mesh-chat)
